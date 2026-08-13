@@ -98,7 +98,7 @@ const aboutValues:{title:string;text:string;icon:ValueIconName}[] = [
 function Header() {
   const [open, setOpen] = useState(false);
   return <header className="header">
-    <Link className="brand brandLogo" href="/" aria-label="i8is home"><Image src="/logoq-04-04.png" alt="i8is inc." width={522} height={346} priority /></Link>
+    <Link className="brand brandLogo" href="/" aria-label="i8is home"><Image src="/i8is logo1-05.png" alt="i8is inc." width={522} height={346} priority /></Link>
     <button className="menuBtn" onClick={() => setOpen(!open)} aria-expanded={open} aria-controls="site-navigation" aria-label={`${open ? "Close" : "Open"} navigation`}>
       <span className="menuBtnIcon" aria-hidden="true"><span/><span/><span/></span>
     </button>
