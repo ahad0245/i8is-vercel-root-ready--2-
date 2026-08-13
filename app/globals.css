@@ -972,6 +972,8 @@ body .homePage .header .brandLogo img{
   display:block;
   object-fit:cover;
   object-position:82% center;
+  image-rendering:auto;
+  backface-visibility:hidden;
 }
 @media(max-width:1180px){
   .featuredInsightSplit{
