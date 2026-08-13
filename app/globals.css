@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* The supplied hero artwork already contains the visual treatment on the right. */
-.hero.heroArtwork{display:block;position:relative;min-height:0;height:auto;aspect-ratio:1441 / 518;background:#f7fbff url('/Hero Section.jpg') center / 100% 100% no-repeat}
+.hero.heroArtwork{display:block;position:relative;min-height:0;height:auto;aspect-ratio:1441 / 518;background:#f7fbff url('/landing page/Hero Section.jpg') center / 100% 100% no-repeat}
 .heroArtwork .heroCopy{position:relative;z-index:1;width:60%;padding:clamp(58px,4vw,82px) 0 60px 5.3vw}
 .hero.heroArtwork h1{max-width:none;width:max-content;font-size:clamp(54px,4.2vw,84px);line-height:.91;margin:30px 0 34px;white-space:nowrap}
 .heroArtwork .heroCopy>p{max-width:620px;font-size:20px;line-height:1.6}
@@ -44,7 +44,7 @@ body{font-size:16px;line-height:1.55}
 @media(max-width:600px){body{font-size:16px}.heroCopy>p,.pageHero p,.intro p,.caseCard p,.serviceCard p,.industryCards p,.casePage p,.featuredInsight p,.insightGrid p,.manifesto p,.timeline p,.contactPage>div p,.deepPage>div>p,.deliverables p,.process article p,.faq details p,.miniCta p,.productGrid p,.suite p,.trustGrid p,.procureGrid p,.articleBody p,.articleBody li{font-size:16px;line-height:1.62}.kicker,.eyebrow,.caseCard small,.productGrid small,.leaderGrid small,.insightStrip small,.insightGrid small{font-size:12px}.textLink,.contactTop,.btn{font-size:16px}.homePage .heroArtwork .heroCopy>p{font-size:17px}.homePage .heroArtwork .eyebrow{font-size:clamp(16px,0.9vw,18px)}.homePage .serviceCard h3,.homePage .caseCard h3,.homePage .insightStrip h3{font-size:22px}}
 
 /* Use the supplied 1441x518 hero artwork as a full fitted background. */
-.homePage .hero.heroArtwork{height:auto;min-height:0;aspect-ratio:1441/518;background-image:url('/Hero Section.jpg');background-size:100% 100%;background-repeat:no-repeat;background-position:center top}
+.homePage .hero.heroArtwork{height:auto;min-height:0;aspect-ratio:1441/518;background-image:url('/landing page/Hero Section.jpg');background-size:100% 100%;background-repeat:no-repeat;background-position:center top}
 .homePage .heroArtwork .heroCopy{padding-top:clamp(58px,5.2vw,95px);padding-left:6.9vw;width:47%}
 .homePage .hero.heroArtwork h1{width:620px;font-size:clamp(52px,4.05vw,78px);line-height:.92;letter-spacing:-4.8px;margin:28px 0 28px}
 .homePage .heroArtwork .heroCopy>p{max-width:720px;font-size:clamp(16px,1vw,19px);line-height:1.55}
@@ -1330,4 +1330,13 @@ body .homePage .header .brandLogo img{
     min-height:27px!important;
     max-height:27px!important;
   }
+}
+
+/* Shared responsive size for primary hero description paragraphs. */
+.heroLead,
+.homePage .heroArtwork .heroCopy > .heroLead,
+.pageHero > .heroLead,
+.servicesPage .pageHero > .heroLead{
+  font-size:clamp(19px,1vw,20px)!important;
+  line-height:1.6!important;
 }
