@@ -99,9 +99,12 @@ function Header() {
   const [open, setOpen] = useState(false);
   return <header className="header">
     <Link className="brand brandLogo" href="/" aria-label="i8is home"><Image src="/logoq-04-04.png" alt="i8is inc." width={522} height={346} priority /></Link>
-    <button className="menuBtn" onClick={() => setOpen(!open)} aria-expanded={open} aria-label="Toggle navigation">{open ? "Close" : "Menu"}</button>
-    <nav className={open ? "nav open" : "nav"}>
+    <button className="menuBtn" onClick={() => setOpen(!open)} aria-expanded={open} aria-controls="site-navigation" aria-label={`${open ? "Close" : "Open"} navigation`}>
+      <span className="menuBtnIcon" aria-hidden="true"><span/><span/><span/></span>
+    </button>
+    <nav id="site-navigation" className={open ? "nav open" : "nav"} onClick={() => setOpen(false)}>
       <Link href="/services">Services</Link><Link href="/products">Products</Link><Link href="/industries">Industries</Link><Link href="/case-studies">Case studies</Link><Link href="/insights">Insights</Link><Link href="/about">About</Link>
+      <Link className="navContact" href="/contact">Let’s talk <Arrow /></Link>
     </nav>
     <Link className="contactTop" href="/contact">Let’s talk <Arrow /></Link>
   </header>;
@@ -114,7 +117,7 @@ function Footer() { return <footer>
   </footer> }
 
 function Home() { return <>
-  <section className="hero heroArtwork"><Image className="heroBgImage" src="/landing page/Hero Section.jpg" alt="" fill priority sizes="100vw" /><div className="heroCopy"><div className="eyebrow heroKicker">Enterprise technology. Built for impact.</div><h1>Own the future<br/>before it arrives.</h1><p className="heroLead">i8is combines AI, secure engineering and operational expertise to help<br/>governments and enterprises turn complex ambition into measurable<br/>progress.</p><div className="actions"><Link className="btn primary" href="/contact">Talk to an expert <Arrow /></Link><Link className="textLink" href="/case-studies">See client outcomes →</Link></div></div></section>
+  <section className="hero heroArtwork"><Image className="heroBgImage" src="/landing page/Hero Section.jpg" alt="" fill priority sizes="100vw" /><div className="heroCopy"><div className="eyebrow heroKicker">Enterprise technology. Built for impact.</div><h1>Own the future<br/>before it arrives.</h1><p className="heroLead">i8is combines AI, secure engineering and operational expertise to help governments and enterprises turn complex ambition into measurable progress.</p><div className="actions"><Link className="btn primary" href="/contact">Talk to an expert <Arrow /></Link><Link className="textLink" href="/case-studies">See client outcomes →</Link></div></div><Image className="heroMobileImage" src="/landing page/hero sections 2.png" alt="" width={1056} height={763} sizes="(max-width: 600px) 100vw, 1px" /></section>
   <section className="proof"><div><strong>3</strong><span>strategic regions</span></div><div><strong>8</strong><span>integrated capabilities</span></div><div><strong>25+</strong><span>active initiatives delivered</span></div><p>Global perspective.<br/><b>Local accountability.</b></p></section>
   <section className="intro section"><div className="introVisual"><div className="kicker">What we do</div><Image className="introImage" src="/landing page/what we do.png" alt="Connected technology workflow" width={1487} height={1058} /></div><div><h2>Strategy is only valuable<br/>when it ships.</h2><p>We work across the full transformation lifecycle—from defining the opportunity and designing the operating model to engineering, securing and scaling the solution.</p></div></section>
   <section className="serviceGrid">{services.map((s,i)=><Link href="/services" className="serviceCard" key={s[0]}><div><span className="serviceNo">0{i+1}</span><span className="serviceIcon">{s[2]}</span></div><h3>{s[0]}</h3><p>{s[1]}</p><Arrow /></Link>)}</section>

@@ -1342,3 +1342,371 @@ body .homePage .header .brandLogo img{
   font-size:clamp(19px,1vw,20px)!important;
   line-height:1.6!important;
 }
+
+/* Responsive header navigation and home hero. */
+.navContact{
+  display:none;
+}
+
+@media(max-width:900px){
+  body .header,
+  body .homePage .header{
+    position:sticky;
+    padding:0 6vw!important;
+  }
+  .menuBtn{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    margin-left:auto;
+    padding:10px 0!important;
+    border:0;
+    background:transparent;
+    color:var(--navy);
+    font:inherit;
+    font-size:15px!important;
+    font-weight:800;
+    cursor:pointer;
+  }
+  .menuBtnIcon{
+    display:flex;
+    width:19px;
+    height:14px;
+    flex-direction:column;
+    justify-content:space-between;
+  }
+  .menuBtnIcon span{
+    display:block;
+    width:100%;
+    height:2px;
+    background:currentColor;
+    transition:transform .2s ease,opacity .2s ease;
+  }
+  .menuBtn[aria-expanded="true"] .menuBtnIcon span:first-child{
+    transform:translateY(6px) rotate(45deg);
+  }
+  .menuBtn[aria-expanded="true"] .menuBtnIcon span:nth-child(2){
+    opacity:0;
+  }
+  .menuBtn[aria-expanded="true"] .menuBtnIcon span:last-child{
+    transform:translateY(-6px) rotate(-45deg);
+  }
+  body .nav,
+  body .homePage .nav{
+    display:none;
+    position:absolute;
+    top:100%!important;
+    left:0;
+    right:0;
+    z-index:60;
+    margin:0;
+    padding:10px 6vw 24px;
+    flex-direction:column;
+    gap:0!important;
+    background:#fff;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    box-shadow:0 18px 34px rgba(7,27,51,.12);
+  }
+  body .nav.open,
+  body .homePage .nav.open{
+    display:flex;
+    top:100%!important;
+  }
+  .nav > a{
+    display:flex;
+    min-height:48px;
+    align-items:center;
+    border-bottom:1px solid #e8edf3;
+  }
+  .nav .navContact{
+    display:flex;
+    min-height:52px;
+    justify-content:space-between;
+    margin-top:14px;
+    padding:0 18px;
+    border:0;
+    background:var(--blue);
+    color:#fff;
+  }
+  body .contactTop,
+  body .homePage .contactTop{
+    display:none!important;
+  }
+
+  .homePage .hero.heroArtwork{
+    width:100%;
+    min-height:0!important;
+    aspect-ratio:auto!important;
+  }
+  .homePage .heroArtwork .heroBgImage{
+    width:100%!important;
+    min-width:100%!important;
+    height:100%!important;
+    object-fit:cover!important;
+    object-position:60% center!important;
+  }
+  .homePage .heroArtwork .heroCopy{
+    width:64%;
+    min-width:520px;
+    padding:clamp(54px,7vw,72px) 0 clamp(52px,7vw,68px) 6vw;
+  }
+  .homePage .hero.heroArtwork h1{
+    width:auto;
+    max-width:620px;
+    margin:25px 0 26px;
+    font-size:clamp(48px,7.4vw,64px);
+    line-height:.96;
+    letter-spacing:0;
+    white-space:normal;
+  }
+  .homePage .heroArtwork .heroCopy > .heroLead{
+    max-width:520px;
+    margin:0;
+  }
+  .homePage .heroArtwork .actions{
+    margin-top:30px;
+    flex-flow:row wrap;
+    align-items:center;
+    gap:18px 24px;
+  }
+  .homePage .heroArtwork .btn{
+    height:54px;
+    padding:14px 19px;
+    gap:22px;
+  }
+}
+
+@media(max-width:600px){
+  body .header,
+  body .homePage .header{
+    padding:0 5.5vw!important;
+  }
+  body .header .brandLogo,
+  body .homePage .header .brandLogo{
+    width:88px!important;
+    height:64px!important;
+    flex-basis:88px!important;
+  }
+  body .header .brandLogo img,
+  body .homePage .header .brandLogo img{
+    height:46px!important;
+    max-height:46px!important;
+    max-width:88px!important;
+  }
+  body .nav,
+  body .homePage .nav{
+    padding:8px 5.5vw 22px;
+  }
+  .homePage .heroArtwork .heroBgImage{
+    inset:0 -250px auto auto!important;
+    width:900px!important;
+    min-width:0!important;
+    max-width:none!important;
+    height:auto!important;
+    aspect-ratio:1441 / 518;
+    object-fit:contain!important;
+    object-position:center!important;
+  }
+  .homePage .heroArtwork .heroCopy{
+    width:100%;
+    min-width:0;
+    padding:38px 5.5vw 42px;
+  }
+  .homePage .heroArtwork .heroKicker{
+    display:block;
+    max-width:330px;
+    font-size:15px!important;
+    line-height:1.5!important;
+  }
+  .homePage .hero.heroArtwork h1{
+    max-width:360px;
+    margin:18px 0 20px;
+    font-size:clamp(34px,9vw,40px);
+    line-height:1;
+    letter-spacing:0;
+  }
+  .homePage .heroArtwork .heroCopy > .heroLead{
+    width:78%;
+    max-width:320px;
+    font-size:16px!important;
+    line-height:1.52!important;
+  }
+  .homePage .heroArtwork .actions{
+    margin-top:24px;
+    flex-direction:row;
+    align-items:center;
+    gap:14px 12px;
+    flex-wrap:nowrap;
+  }
+  .homePage .heroArtwork .btn{
+    min-height:48px;
+    height:auto;
+    padding:12px 14px;
+    gap:15px;
+    white-space:nowrap;
+  }
+  .homePage .heroArtwork .btn,
+  .homePage .heroArtwork .textLink{
+    font-size:14px;
+  }
+  .homePage .heroArtwork .textLink{
+    white-space:nowrap;
+  }
+}
+
+@media(max-width:350px){
+  .homePage .heroArtwork .heroBgImage{
+    right:-275px!important;
+  }
+  .homePage .heroArtwork .heroCopy{
+    padding-top:36px;
+  }
+  .homePage .hero.heroArtwork h1{
+    font-size:38px;
+  }
+  .homePage .heroArtwork .heroCopy > .heroLead{
+    width:88%;
+    font-size:17px!important;
+  }
+  .homePage .heroArtwork .actions{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+}
+
+/* Phone hero: keep artwork and copy in separate, stable layout regions. */
+@media(max-width:600px){
+  .homePage .hero.heroArtwork{
+    display:flex!important;
+    flex-direction:column!important;
+    min-height:0!important;
+    background:#f6f8fc!important;
+  }
+  .homePage .heroArtwork .heroCopy{
+    order:1;
+    width:100%!important;
+    min-width:0!important;
+    padding:36px 5.5vw 34px!important;
+  }
+  .homePage .heroArtwork .heroBgImage{
+    position:relative!important;
+    inset:auto!important;
+    order:2;
+    display:block!important;
+    width:100%!important;
+    min-width:0!important;
+    max-width:100%!important;
+    height:clamp(150px,42vw,185px)!important;
+    aspect-ratio:auto!important;
+    object-fit:cover!important;
+    object-position:right center!important;
+  }
+  .homePage .heroArtwork .heroKicker{
+    max-width:340px!important;
+    font-size:15px!important;
+    line-height:1.45!important;
+    letter-spacing:.16em!important;
+  }
+  .homePage .hero.heroArtwork h1{
+    width:100%!important;
+    max-width:370px!important;
+    margin:18px 0 20px!important;
+    font-size:36px!important;
+    line-height:1!important;
+    letter-spacing:0!important;
+  }
+  .homePage .heroArtwork .heroCopy > .heroLead{
+    width:100%!important;
+    max-width:365px!important;
+    margin:0!important;
+    font-size:16px!important;
+    line-height:1.52!important;
+  }
+  .homePage .heroArtwork .actions{
+    margin-top:24px!important;
+    flex-flow:row nowrap!important;
+    align-items:center!important;
+    gap:12px!important;
+  }
+  .homePage .heroArtwork .btn{
+    min-height:48px!important;
+    height:auto!important;
+    padding:12px 14px!important;
+    gap:15px!important;
+    white-space:nowrap!important;
+  }
+  .homePage .heroArtwork .btn,
+  .homePage .heroArtwork .textLink{
+    font-size:14px!important;
+    white-space:nowrap!important;
+  }
+}
+
+@media(max-width:400px){
+  .homePage .heroArtwork .heroCopy{
+    padding:34px 5.5vw 32px!important;
+  }
+  .homePage .heroArtwork .heroKicker{
+    max-width:310px!important;
+    font-size:14px!important;
+  }
+  .homePage .hero.heroArtwork h1{
+    max-width:335px!important;
+    font-size:33px!important;
+  }
+  .homePage .heroArtwork .heroCopy > .heroLead{
+    max-width:340px!important;
+    font-size:15.5px!important;
+  }
+  .homePage .heroArtwork .actions{
+    flex-direction:column!important;
+    align-items:flex-start!important;
+    gap:17px!important;
+  }
+}
+
+@media(max-width:340px){
+  .homePage .heroArtwork .heroCopy{
+    padding-top:30px!important;
+  }
+  .homePage .heroArtwork .heroKicker{
+    max-width:280px!important;
+    font-size:13px!important;
+    letter-spacing:.14em!important;
+  }
+  .homePage .hero.heroArtwork h1{
+    max-width:290px!important;
+    font-size:30px!important;
+  }
+  .homePage .heroArtwork .heroCopy > .heroLead{
+    font-size:15px!important;
+  }
+}
+
+/* The dedicated mobile artwork stays centered, large and completely visible. */
+.heroMobileImage{
+  display:none;
+}
+
+@media(max-width:600px){
+  .homePage .heroArtwork .heroBgImage{
+    display:none!important;
+  }
+  .homePage .heroArtwork .heroCopy{
+    order:0!important;
+  }
+  .homePage .heroArtwork .heroMobileImage{
+    position:relative!important;
+    inset:auto!important;
+    order:10!important;
+    flex:none!important;
+    display:block!important;
+    width:100%!important;
+    max-width:560px!important;
+    height:auto!important;
+    margin:0 auto!important;
+    object-fit:contain!important;
+    object-position:center!important;
+  }
+}
