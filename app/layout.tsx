@@ -31,9 +31,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        suppressHydrationWarning
       >
         <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"Organization",name:"i8is Inc.",url:"https://i8is.com",email:"contact@i8is.com",telephone:"+1-647-930-0988",areaServed:["Saudi Arabia","Canada","United States"],knowsAbout:["Artificial intelligence","Custom software development","Cybersecurity","Data analytics","Cloud infrastructure","FinTech","Digital transformation"]})}} />
         {children}
