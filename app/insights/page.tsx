@@ -1,0 +1,20 @@
+import Link from "next/link";
+import { Footer, Header } from "../site";
+import { categoryFor, featuredImageFor, getWordPressPostsPage, textFromHtml } from "../../lib/wordpress";
+
+export const metadata = { title: "Insights | i8is", description: "Practical perspectives from i8is on AI, software, cybersecurity, cloud, data and digital transformation.", alternates: { canonical: "https://i8is.com/insights/" } };
+
+export default async function InsightsPage({ searchParams }: { searchParams: Promise<{ page?: string }> }) {
+  const requestedPage = Number((await searchParams).page);
+  const currentPage = Number.isInteger(requestedPage) && requestedPage > 0 ? requestedPage : 1;
+  const { posts, totalPages } = await getWordPressPostsPage(currentPage);
+  const featured: Array<[string, string, string, string, string | null]> = [
+    ["AI strategy", "The operating model for responsible, scalable enterprise AI", "Moving beyond isolated pilots requires clear ownership, trustworthy data, measurable use cases and governance.", "/insights page/insight1.png", "/enterprise-ai-operating-model"],
+    ["Cybersecurity", "Secure by design: why custom software changes the compliance equation", "Architecture decisions should make security and compliance part of everyday delivery.", "/landing page/cybersecurity.png", null],
+    ["Cloud", "Modernization without disruption: a practical path out of legacy complexity", "A pragmatic roadmap for improving operations while protecting continuity.", "/landing page/cloud.png", null],
+  ];
+  return <><Header /><main><section className="pageHero"><div className="kicker">Insights</div><h1>Useful thinking for leaders building what’s next.</h1><p>Practical perspectives on AI, software, cyber resilience, cloud, data and enterprise transformation—written for decisions, not impressions.</p></section><section className="featuredEditorial" aria-label="Featured i8is insights"><div className="sectionLabel"><div><div className="kicker">Featured perspectives</div><h2>Signal over noise.</h2></div></div><div className="featuredEditorialGrid">{featured.map(([category, title, text, image, href]) => <article key={title}><img src={image} alt="" /><div><small>{category}</small><h2>{title}</h2><p>{text}</p>{href ? <Link href={href}>Read executive brief →</Link> : <span>New brief coming soon</span>}</div></article>)}</div></section><section className="wpArchiveHead"><div className="kicker">From the archive</div><h2>Latest Insights</h2><p>Articles and resources published by the i8is team.</p></section><section className="wpPostGrid" aria-label="Latest insights">
+    {posts.map((post) => { const image = featuredImageFor(post); const excerpt = textFromHtml(post.excerpt.rendered || post.content.rendered).slice(0, 190); return <article className="wpPostCard" key={post.id}>{image && <img src={image} alt="" />}<div><small>{categoryFor(post)} · {new Intl.DateTimeFormat("en", { month: "long", day: "numeric", year: "numeric" }).format(new Date(post.date))}</small><h2>{textFromHtml(post.title.rendered)}</h2><p>{excerpt}{excerpt.length === 190 ? "…" : ""}</p><Link href={`/insights/${post.slug}`}>Read article →</Link></div></article>; })}
+    {!posts.length && <p className="wpEmpty">Articles are temporarily unavailable. Please try again shortly.</p>}
+  </section>{totalPages > 1 && <nav className="wpPagination" aria-label="Insights pagination"><Link className={currentPage === 1 ? "disabled" : ""} aria-disabled={currentPage === 1} href={currentPage > 1 ? `/insights?page=${currentPage - 1}` : "/insights"}>← Previous</Link><div>{Array.from({ length: totalPages }, (_, index) => index + 1).map((page) => <Link key={page} className={page === currentPage ? "active" : ""} aria-current={page === currentPage ? "page" : undefined} href={page === 1 ? "/insights" : `/insights?page=${page}`}>{page}</Link>)}</div><Link className={currentPage === totalPages ? "disabled" : ""} aria-disabled={currentPage === totalPages} href={currentPage < totalPages ? `/insights?page=${currentPage + 1}` : `/insights?page=${totalPages}`}>Next →</Link></nav>}</main><Footer /></>;
+}

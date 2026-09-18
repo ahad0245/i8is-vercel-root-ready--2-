@@ -1,0 +1,170 @@
+.scope {
+  --navy: #061b38;
+  --blue: #0068eb;
+  --muted: #4b6280;
+  color: var(--navy);
+}
+
+.scope :global(.container) {
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+.scope :global(.procurementHero) {
+  padding: clamp(76px, 10vw, 142px) 0 clamp(74px, 10vw, 128px);
+  background:
+    linear-gradient(90deg, rgba(7, 102, 235, 0.07) 1px, transparent 1px),
+    linear-gradient(rgba(7, 102, 235, 0.07) 1px, transparent 1px),
+    linear-gradient(125deg, #f6faff, #eaf4ff);
+  background-size: 46px 46px, 46px 46px, auto;
+}
+
+.scope :global(.eyebrow),
+.scope :global(.index) {
+  margin: 0 0 20px;
+  color: var(--blue);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.scope :global(h1),
+.scope :global(h2),
+.scope :global(p) {
+  margin-top: 0;
+}
+
+.scope :global(.procurementHero h1) {
+  max-width: 980px;
+  margin-bottom: 30px;
+  font-size: clamp(3rem, 6.2vw, 6.2rem);
+  letter-spacing: -0.07em;
+  line-height: 0.94;
+}
+
+.scope :global(.intro) {
+  max-width: 760px;
+  color: var(--muted);
+  font-size: clamp(1.05rem, 1.5vw, 1.22rem);
+  line-height: 1.65;
+}
+
+.scope :global(.intro p) {
+  margin-bottom: 16px;
+}
+
+.scope :global(.capabilities) {
+  padding: clamp(68px, 9vw, 116px) 0;
+}
+
+.scope :global(.capabilityGrid) {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border: 1px solid #d8e2ed;
+}
+
+.scope :global(.capabilityGrid article) {
+  padding: clamp(30px, 4vw, 54px);
+}
+
+.scope :global(.capabilityGrid article + article) {
+  border-left: 1px solid #d8e2ed;
+}
+
+.scope :global(.capabilityGrid .index) {
+  margin-bottom: 46px;
+}
+
+.scope :global(.capabilityGrid h2),
+.scope :global(.deliveryNotes h2) {
+  margin-bottom: 20px;
+  font-size: clamp(2rem, 3.3vw, 3.5rem);
+  letter-spacing: -0.06em;
+  line-height: 0.98;
+}
+
+.scope :global(.capabilityGrid > article > p:not(.index)),
+.scope :global(.deliveryNotes article > p:not(.eyebrow)) {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.scope :global(ul) {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 24px;
+  padding: 20px 0 0;
+  margin: 0;
+  border-top: 1px solid #d8e2ed;
+  list-style: none;
+}
+
+.scope :global(li) {
+  position: relative;
+  padding-left: 18px;
+  color: var(--navy);
+  font-size: 0.94rem;
+  line-height: 1.4;
+}
+
+.scope :global(li::before) {
+  position: absolute;
+  top: 0.43em;
+  left: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--blue);
+  content: "";
+}
+
+.scope :global(.deliveryNotes) {
+  padding: clamp(64px, 8vw, 108px) 0;
+  background: var(--navy);
+  color: #fff;
+}
+
+.scope :global(.noteGrid) {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.8fr);
+  gap: clamp(42px, 8vw, 130px);
+}
+
+.scope :global(.deliveryNotes h2) {
+  max-width: 660px;
+}
+
+.scope :global(.deliveryNotes article > p:not(.eyebrow)) {
+  max-width: 700px;
+  color: #d0dcec;
+  font-size: 1.03rem;
+}
+
+.scope :global(.verification) {
+  align-self: start;
+  padding: 30px;
+  border: 1px solid rgba(212, 228, 247, 0.28);
+}
+
+@media (max-width: 760px) {
+  .scope :global(.container) {
+    width: min(100% - 36px, 680px);
+  }
+
+  .scope :global(.capabilityGrid),
+  .scope :global(.noteGrid) {
+    grid-template-columns: 1fr;
+  }
+
+  .scope :global(.capabilityGrid article + article) {
+    border-top: 1px solid #d8e2ed;
+    border-left: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .scope :global(ul) {
+    grid-template-columns: 1fr;
+  }
+}

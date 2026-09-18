@@ -13,15 +13,15 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "i8is — Digital Transformation & AI",
-  description: "i8is helps governments and enterprises transform with AI, secure software, cloud, data and workforce solutions across Saudi Arabia, Canada and the United States.",
+  title: "Enterprise Technology, AI & Digital Transformation | i8is",
+  description: "i8is helps governments and enterprises build secure AI, software, data and cloud solutions that deliver measurable operational outcomes.",
   keywords: ["enterprise AI consulting", "digital transformation Saudi Arabia", "custom software development", "cybersecurity solutions", "cloud automation", "i8is"],
   other: {
     "codex-preview": "development",
   },
   icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
   },
 };
 

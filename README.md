@@ -35,6 +35,7 @@ npm run build
 - Add approved client metrics, testimonials, photographs and product screenshots when supplied.
 - Update canonical URLs only if the final production domain is not `https://i8is.com`.
 - Configure redirects from matching legacy WordPress URLs before changing DNS.
+- Set `WORDPRESS_API_URL` in Vercel to the **retained WordPress host** ending in `/wp-json/wp/v2`. Do not use `https://i8is.com` after that domain points to this Next.js deployment; otherwise the blog cannot reach WordPress.
 
 ## Included
 

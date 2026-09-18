@@ -1,5 +1,7 @@
 import Site from "../site";
 import type { Metadata } from "next";
+import { permanentRedirect } from "next/navigation";
+import { getWordPressPost, getWordPressPosts } from "../../lib/wordpress";
 
 const titles:Record<string,string>={
   services:"Services",products:"Products & Platforms",industries:"Industries", "case-studies":"Case Studies",insights:"Insights",about:"About",leadership:"Leadership",trust:"Trust Center",procurement:"Government Procurement",careers:"Careers",contact:"Contact",
@@ -8,7 +10,13 @@ const titles:Record<string,string>={
 
 export async function generateMetadata({params}:{params:Promise<{slug:string}>}):Promise<Metadata>{const {slug}=await params;const title=titles[slug]||"i8is";return {title:`${title} | i8is`,description:`Explore ${title.toLowerCase()} from i8is—enterprise technology, AI, secure engineering and workforce solutions across Saudi Arabia, Canada and the United States.`,alternates:{canonical:`https://i8is.com/${slug}/`},openGraph:{title:`${title} | i8is`,description:`Enterprise ${title.toLowerCase()} built for measurable outcomes.`,type:"website"}}}
 
+export async function generateStaticParams() { return (await getWordPressPosts()).map((post) => ({ slug: post.slug })); }
+
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
+  if (!titles[slug]) {
+    const legacyPost = await getWordPressPost(slug);
+    if (legacyPost) permanentRedirect(`/insights/${legacyPost.slug}`);
+  }
   return <Site page={slug} />;
 }

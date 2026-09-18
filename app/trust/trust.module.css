@@ -1,0 +1,172 @@
+.scope {
+  --navy: #061b38;
+  --blue: #0068eb;
+  --ink-muted: #4c6380;
+  color: var(--navy);
+}
+
+.scope :global(.container) {
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+.scope :global(.trustHero) {
+  padding: clamp(76px, 10vw, 142px) 0 clamp(68px, 9vw, 120px);
+  background:
+    radial-gradient(circle at 85% 22%, rgba(24, 113, 242, 0.14), transparent 28%),
+    linear-gradient(115deg, #f5f9ff 0%, #eaf4ff 100%);
+}
+
+.scope :global(.eyebrow) {
+  margin: 0 0 20px;
+  color: var(--blue);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.19em;
+  text-transform: uppercase;
+}
+
+.scope :global(h1),
+.scope :global(h2),
+.scope :global(p) {
+  margin-top: 0;
+}
+
+.scope :global(.trustHero h1) {
+  max-width: 880px;
+  margin-bottom: 28px;
+  font-size: clamp(3rem, 6.3vw, 6.3rem);
+  letter-spacing: -0.07em;
+  line-height: 0.94;
+}
+
+.scope :global(.intro) {
+  max-width: 720px;
+  color: var(--ink-muted);
+  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+  line-height: 1.65;
+}
+
+.scope :global(.intro p) {
+  margin-bottom: 16px;
+}
+
+.scope :global(.trustPrinciples) {
+  padding: clamp(70px, 9vw, 120px) 0;
+  background: #fff;
+}
+
+.scope :global(.sectionLead) {
+  display: grid;
+  grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
+  gap: 40px;
+  align-items: start;
+  margin-bottom: 48px;
+}
+
+.scope :global(.sectionLead .eyebrow) {
+  margin-top: 10px;
+}
+
+.scope :global(.sectionLead h2),
+.scope :global(.compliance h2) {
+  margin-bottom: 0;
+  font-size: clamp(2.2rem, 4vw, 4.4rem);
+  letter-spacing: -0.06em;
+  line-height: 0.98;
+}
+
+.scope :global(.principleGrid) {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid #d8e2ee;
+  border-left: 1px solid #d8e2ee;
+}
+
+.scope :global(.principle) {
+  min-height: 310px;
+  padding: 32px;
+  border-right: 1px solid #d8e2ee;
+  border-bottom: 1px solid #d8e2ee;
+}
+
+.scope :global(.principle span) {
+  display: block;
+  margin-bottom: 46px;
+  color: var(--blue);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.scope :global(.principle h2) {
+  margin-bottom: 15px;
+  font-size: clamp(1.45rem, 2vw, 2rem);
+  letter-spacing: -0.045em;
+  line-height: 1.05;
+}
+
+.scope :global(.principle p),
+.scope :global(.compliance p) {
+  color: var(--ink-muted);
+  font-size: 0.98rem;
+  line-height: 1.65;
+}
+
+.scope :global(.principle p) {
+  margin-bottom: 13px;
+}
+
+.scope :global(.compliance) {
+  padding: clamp(64px, 8vw, 104px) 0;
+  background: var(--navy);
+  color: #fff;
+}
+
+.scope :global(.compliance h2) {
+  max-width: 820px;
+  margin-bottom: 30px;
+}
+
+.scope :global(.compliance p:not(.eyebrow)) {
+  max-width: 750px;
+  color: #cfdbeb;
+  font-size: clamp(1rem, 1.45vw, 1.16rem);
+}
+
+@media (max-width: 820px) {
+  .scope :global(.container) {
+    width: min(100% - 36px, 680px);
+  }
+
+  .scope :global(.sectionLead) {
+    display: block;
+  }
+
+  .scope :global(.sectionLead .eyebrow) {
+    margin-top: 0;
+  }
+
+  .scope :global(.principleGrid) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .scope :global(.trustHero) {
+    padding-top: 64px;
+  }
+
+  .scope :global(.principleGrid) {
+    grid-template-columns: 1fr;
+  }
+
+  .scope :global(.principle) {
+    min-height: 0;
+    padding: 28px 24px;
+  }
+
+  .scope :global(.principle span) {
+    margin-bottom: 32px;
+  }
+}
